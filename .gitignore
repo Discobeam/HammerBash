@@ -2,3 +2,11 @@
 /Intermediate
 /Saved
 /Build
+/Binaries
+
+*.xcodeproj
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.sln
