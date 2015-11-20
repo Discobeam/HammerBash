@@ -37,7 +37,7 @@ void AGun::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 void  AGun::Reload()
 {
-	if (CurrentReserves > MagazineSize - CurrentAmmo) //IF their is more ammo avaliable than the amount required to fill the magazine.;
+	if (CurrentReserves > MagazineSize - CurrentAmmo) //If their is more ammo avaliable than the amount required to fill the magazine.;
 	{
 		CurrentReserves -= MagazineSize - CurrentAmmo;  //Fill the magazine and lower the Reserves by the right amount.
 		CurrentAmmo = MagazineSize;
