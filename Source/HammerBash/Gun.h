@@ -54,10 +54,19 @@ public:
 
 private:
 
-	uint8 damage = 0;
-	uint8 CurrentAmmo;
-	int8 MagazineSize = 0;
-	int32 CurrentReserves;
-	uint32 MaxReserves = 0;
+	UPROPERTY(EditDefaultsOnly)
+		uint8 damage = 0;
+
+	UPROPERTY()
+		uint8 CurrentAmmo;
+
+	UPROPERTY(EditDefaultsOnly)
+		int8 MagazineSize = 0;
+
+	UPROPERTY()
+		int32 CurrentReserves;
+
+	UPROPERTY(EditDefaultsOnly)
+		uint32 MaxReserves = 0;
 
 };

@@ -53,14 +53,17 @@ void  AGun::Reload()
 
 void AGun::Shoot()
 {
-	CurrentAmmo -= 1;
-
-	if (CurrentAmmo == 0)
+	if (CurrentAmmo > 0)
 	{
-		Reload();
+		CurrentAmmo -= 1;
+
+		if (CurrentAmmo == 0)
+		{
+			Reload();
+		}
+		ShootPhysics();
+		ShootAnimations();
 	}
-	ShootPhysics();
-	ShootAnimations();
 }
 
 uint8 AGun::GetAmmo()
