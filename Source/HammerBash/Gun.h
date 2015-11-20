@@ -42,6 +42,9 @@ public:
 	UFUNCTION(BlueprintCallable, category = "Gun")
 		uint8 GetMagazineSize();
 
+	UFUNCTION(BlueprintCallable, category = "Gun")
+		void StopFiring();
+
 	UFUNCTION(BlueprintImplementableEvent)
 		void ShootAnimations();
 
@@ -68,5 +71,27 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 		uint32 MaxReserves = 0;
+
+	UPROPERTY(EditDefaultsOnly)
+		float ReloadSpeed;
+
+	UPROPERTY(EditDefaultsOnly)
+		float FireRate;
+
+	UPROPERTY(EditDefaultsOnly)
+		bool IsFullAuto = false;
+
+	bool CanFire = true;
+
+	void EnableFire();
+
+	bool ContinueFiring = false;
+
+	bool reloading = false;
+
+	void FinishReload();
+
+	FTimerHandle EnableFireTimerHandler;
+	FTimerHandle ReloadTimerHandler;
 
 };

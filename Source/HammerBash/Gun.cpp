@@ -37,13 +37,23 @@ void AGun::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 void  AGun::Reload()
 {
+	if (!reloading)
+	{
+		reloading = true;
+		ReloadAnimations();
+		GetWorldTimerManager().SetTimer(ReloadTimerHandler, this, &AGun::FinishReload, ReloadSpeed, false);
+	}
+}
+void AGun::FinishReload()
+{
+	reloading = false;
 	if (CurrentReserves > MagazineSize - CurrentAmmo) //If their is more ammo avaliable than the amount required to fill the magazine.;
 	{
 		CurrentReserves -= MagazineSize - CurrentAmmo;  //Fill the magazine and lower the Reserves by the right amount.
 		CurrentAmmo = MagazineSize;
 	}
 	else
-	{	
+	{
 		CurrentAmmo += CurrentReserves;	//Else move all the avaliable ammo to the magazine.
 		CurrentReserves = 0;
 	}
@@ -53,7 +63,7 @@ void  AGun::Reload()
 
 void AGun::Shoot()
 {
-	if (CurrentAmmo > 0)
+	if (CurrentAmmo > 0 && CanFire)
 	{
 		CurrentAmmo -= 1;
 
@@ -63,6 +73,12 @@ void AGun::Shoot()
 		}
 		ShootPhysics();
 		ShootAnimations();
+		CanFire = false;
+		if (IsFullAuto)
+		{				//If the gun is on full auto mode , set the gun to fire again unless the mouse is released.(handled in StopFiring())
+			ContinueFiring = true;
+		}
+		GetWorldTimerManager().SetTimer(EnableFireTimerHandler,this, &AGun::EnableFire, FireRate, false);
 	}
 }
 
@@ -84,6 +100,18 @@ int32 AGun::GetMaxReserves()
 uint8 AGun::GetMagazineSize()
 {
 	return MagazineSize;
+}
+void AGun::EnableFire()
+{
+	CanFire = true;
+	if (ContinueFiring)
+	{
+		Shoot();
+	}
+}
+void AGun::StopFiring()
+{
+	ContinueFiring = false;
 }
 
 
