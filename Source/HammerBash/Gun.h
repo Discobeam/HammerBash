@@ -52,6 +52,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 		void ShootPhysics();
 
+	UPROPERTY(BlueprintReadWrite, category = "Gun")
+		bool IsEquiped = false;
 
 private:
 
