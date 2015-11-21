@@ -28,13 +28,6 @@ void AGun::Tick( float DeltaTime )
 
 }
 
-// Called to bind functionality to input
-void AGun::SetupPlayerInputComponent(class UInputComponent* InputComponent)
-{
-	Super::SetupPlayerInputComponent(InputComponent);
-
-}
-
 void  AGun::Reload()
 {
 	if (!reloading)
@@ -63,7 +56,7 @@ void AGun::FinishReload()
 
 void AGun::Shoot()
 {
-	if (CurrentAmmo > 0 && CanFire)
+	if (CurrentAmmo > 0 && CanFire && !reloading)
 	{
 		CurrentAmmo -= 1;
 

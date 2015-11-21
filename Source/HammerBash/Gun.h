@@ -2,11 +2,11 @@
 
 #pragma once
 
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Actor.h"
 #include "Gun.generated.h"
 
 UCLASS()
-class HAMMERBASH_API AGun : public APawn
+class HAMMERBASH_API AGun : public AActor
 {
 	GENERATED_BODY()
 
@@ -21,8 +21,6 @@ public:
 	virtual void Tick( float DeltaSeconds ) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
-
 
 	UFUNCTION(BlueprintCallable,category = "Gun")
 		void Reload();
