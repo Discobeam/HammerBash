@@ -3,9 +3,9 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class HammerbashEditorTarget : TargetRules
+public class HammerBashEditorTarget : TargetRules
 {
-	public HammerbashEditorTarget(TargetInfo Target)
+	public HammerBashEditorTarget(TargetInfo Target)
 	{
 		Type = TargetType.Editor;
 	}
