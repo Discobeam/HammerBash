@@ -1,13 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "HammerBash.h"
+#include "Hammerbash.h"
 #include "Gun.h"
 
 
 // Sets default values
 AGun::AGun()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -18,13 +18,13 @@ void AGun::BeginPlay()
 	CurrentAmmo = MagazineSize;
 	CurrentReserves = MaxReserves;
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
-void AGun::Tick( float DeltaTime )
+void AGun::Tick(float DeltaTime)
 {
-	Super::Tick( DeltaTime );
+	Super::Tick(DeltaTime);
 
 }
 
@@ -71,7 +71,7 @@ void AGun::Shoot()
 		{				//If the gun is on full auto mode , set the gun to fire again unless the mouse is released.(handled in StopFiring())
 			ContinueFiring = true;
 		}
-		GetWorldTimerManager().SetTimer(EnableFireTimerHandler,this, &AGun::EnableFire, FireRate, false);
+		GetWorldTimerManager().SetTimer(EnableFireTimerHandler, this, &AGun::EnableFire, FireRate, false);
 	}
 }
 
@@ -106,6 +106,4 @@ void AGun::StopFiring()
 {
 	ContinueFiring = false;
 }
-
-
 

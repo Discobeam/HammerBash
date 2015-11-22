@@ -20,6 +20,6 @@ public class HammerBashTarget : TargetRules
 		ref List<string> OutExtraModuleNames
 		)
 	{
-		OutExtraModuleNames.AddRange( new string[] { "HammerBash" } );
+		OutExtraModuleNames.AddRange( new string[] { "Hammerbash" } );
 	}
 }

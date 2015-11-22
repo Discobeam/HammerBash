@@ -9,20 +9,20 @@ UCLASS()
 class HAMMERBASH_API AGun : public AActor
 {
 	GENERATED_BODY()
-
+	
 public:
 	// Sets default values for this pawn's properties
 	AGun();
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
+
 	// Called every frame
-	virtual void Tick( float DeltaSeconds ) override;
+	virtual void Tick(float DeltaSeconds) override;
 
 	// Called to bind functionality to input
 
-	UFUNCTION(BlueprintCallable,category = "Gun")
+	UFUNCTION(BlueprintCallable, category = "Gun")
 		void Reload();
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
