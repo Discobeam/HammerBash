@@ -75,7 +75,13 @@ void AGun::Shoot()
 	}
 }
 
-uint8 AGun::GetAmmo()
+void AGun::SetupGun(int32 NewAmmo, int32 NewReserves)
+{
+	CurrentAmmo = NewAmmo;
+	CurrentReserves = NewReserves;
+}
+
+int32 AGun::GetAmmo()
 {
 	return CurrentAmmo;
 }
@@ -90,7 +96,7 @@ int32 AGun::GetMaxReserves()
 	return MaxReserves;
 }
 
-uint8 AGun::GetMagazineSize()
+int32 AGun::GetMagazineSize()
 {
 	return MagazineSize;
 }

@@ -29,7 +29,7 @@ public:
 		void Shoot();
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
-		uint8 GetAmmo();
+		int32 GetAmmo();
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
 		int32 GetCurrentReserves();
@@ -38,7 +38,10 @@ public:
 		int32 GetMaxReserves();
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
-		uint8 GetMagazineSize();
+		int32 GetMagazineSize();
+
+	UFUNCTION(BlueprintCallable, category = "Gun")
+		void SetupGun(int32 NewAmmo ,int32 NewReserves);
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
 		void StopFiring();
@@ -58,19 +61,19 @@ public:
 private:
 
 	UPROPERTY(EditDefaultsOnly)
-		uint8 damage = 0;
+		int32 damage = 0;
 
 	UPROPERTY()
-		uint8 CurrentAmmo;
+		int32 CurrentAmmo;
 
 	UPROPERTY(EditDefaultsOnly)
-		int8 MagazineSize = 0;
+		int32 MagazineSize = 0;
 
 	UPROPERTY()
 		int32 CurrentReserves;
 
 	UPROPERTY(EditDefaultsOnly)
-		uint32 MaxReserves = 0;
+		int32 MaxReserves = 0;
 
 	UPROPERTY(EditDefaultsOnly)
 		float ReloadSpeed;
