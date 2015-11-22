@@ -3,9 +3,9 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class HammerBashEditorTarget : TargetRules
+public class HammerbashEditorTarget : TargetRules
 {
-	public HammerBashEditorTarget(TargetInfo Target)
+	public HammerbashEditorTarget(TargetInfo Target)
 	{
 		Type = TargetType.Editor;
 	}
@@ -20,6 +20,6 @@ public class HammerBashEditorTarget : TargetRules
 		ref List<string> OutExtraModuleNames
 		)
 	{
-		OutExtraModuleNames.AddRange( new string[] { "HammerBash" } );
+		OutExtraModuleNames.AddRange( new string[] { "Hammerbash" } );
 	}
 }

@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class HammerBash : ModuleRules
+public class Hammerbash : ModuleRules
 {
-	public HammerBash(TargetInfo Target)
+	public Hammerbash(TargetInfo Target)
 	{
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
