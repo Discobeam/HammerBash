@@ -3,9 +3,9 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class HammerbashTarget : TargetRules
+public class HammerBashTarget : TargetRules
 {
-	public HammerbashTarget(TargetInfo Target)
+	public HammerBashTarget(TargetInfo Target)
 	{
 		Type = TargetType.Game;
 	}
