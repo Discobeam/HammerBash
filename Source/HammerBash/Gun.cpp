@@ -51,7 +51,6 @@ void AGun::FinishReload()
 		CurrentReserves = 0;
 	}
 
-	ReloadAnimations();
 }
 
 void AGun::Shoot()
