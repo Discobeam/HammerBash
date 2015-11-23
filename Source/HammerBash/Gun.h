@@ -58,6 +58,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, category = "Gun")
 		bool IsEquiped = false;
 
+	UPROPERTY(EditDefaultsOnly)
+		int32 MaxReserves = 0;
+
 private:
 
 	UPROPERTY(EditDefaultsOnly)
@@ -71,9 +74,6 @@ private:
 
 	UPROPERTY()
 		int32 CurrentReserves;
-
-	UPROPERTY(EditDefaultsOnly)
-		int32 MaxReserves = 0;
 
 	UPROPERTY(EditDefaultsOnly)
 		float ReloadSpeed;
