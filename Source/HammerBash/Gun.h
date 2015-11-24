@@ -25,7 +25,7 @@ public:
 	UFUNCTION(BlueprintCallable, category = "Gun")
 		void Reload();
 
-	UFUNCTION(BlueprintCallable, category = "Gun")
+	UFUNCTION(BlueprintCallable,Server , WithValidation, Reliable, category = "Gun")
 		void Shoot();
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
@@ -41,6 +41,9 @@ public:
 		int32 GetMagazineSize();
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
+		void SetupCameraPosition(FVector CameraPosition, FRotator CameraRotation);
+
+	UFUNCTION(BlueprintCallable, category = "Gun")
 		void SetupGun(int32 NewAmmo ,int32 NewReserves);
 
 	UFUNCTION(BlueprintCallable, category = "Gun")
@@ -53,7 +56,7 @@ public:
 		void ReloadAnimations();
 
 	UFUNCTION(BlueprintImplementableEvent)
-		void ShootPhysics();
+		void ShootPhysics(FVector CameraPosition, FRotator CameraRotation, int32 damage);
 
 	UPROPERTY(BlueprintReadWrite, category = "Gun")
 		bool IsEquiped = false;
@@ -83,6 +86,11 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 		bool IsFullAuto = false;
+
+
+	FVector CurrentCameraPosition;
+
+	FRotator CurrentCameraRotation;
 
 	bool CanFire = true;
 

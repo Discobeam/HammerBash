@@ -53,7 +53,7 @@ void AGun::FinishReload()
 
 }
 
-void AGun::Shoot()
+void AGun::Shoot_Implementation()
 {
 	if (CurrentAmmo > 0 && CanFire && !reloading)
 	{
@@ -63,7 +63,7 @@ void AGun::Shoot()
 		{
 			Reload();
 		}
-		ShootPhysics();
+		ShootPhysics(CurrentCameraPosition, CurrentCameraRotation, damage);
 		ShootAnimations();
 		CanFire = false;
 		if (IsFullAuto)
@@ -72,6 +72,10 @@ void AGun::Shoot()
 		}
 		GetWorldTimerManager().SetTimer(EnableFireTimerHandler, this, &AGun::EnableFire, FireRate, false);
 	}
+}
+bool AGun::Shoot_Validate()
+{
+	return true;
 }
 
 void AGun::SetupGun(int32 NewAmmo, int32 NewReserves)
@@ -104,11 +108,17 @@ void AGun::EnableFire()
 	CanFire = true;
 	if (ContinueFiring)
 	{
+
 		Shoot();
 	}
 }
 void AGun::StopFiring()
 {
 	ContinueFiring = false;
+}
+void AGun::SetupCameraPosition(FVector CameraPosition, FRotator CameraRotation)
+{
+	CurrentCameraPosition = CameraPosition;
+	CurrentCameraRotation = CameraRotation;
 }
 
